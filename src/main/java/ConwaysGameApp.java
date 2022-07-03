@@ -16,11 +16,11 @@ public class ConwaysGameApp extends Thread {
 
         for (int y = 0; y < pixels.length; y++) {
             for (int x = 0; x < pixels[y].length; x++) {
-                boolean bool = (random.nextInt(40) == 1);
+                boolean bool = (random.nextInt(25) == 1);
                 pixels[y][x] = bool;
             }
         }
-        GameOfLife conways = new GameOfLife(pixels, x_size, y_size, 100);
+        GameOfLife conways = new GameOfLife(pixels, x_size, y_size);
         while (true) {
             JPanel pane = new JPanel() {
                 @Override
@@ -28,7 +28,7 @@ public class ConwaysGameApp extends Thread {
                     super.paintComponent(g);
                     g.drawImage(conways.tick(), 0, 0, null);
                 }
-            };
+           };
 
             frame.add(pane);
             frame.setVisible(true);

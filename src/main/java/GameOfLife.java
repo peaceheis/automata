@@ -6,13 +6,11 @@ public class GameOfLife implements Simulation {
     public boolean[][] pixels;
     private final int width;
     private final int height;
-    private final int tickLength;
 
-    public GameOfLife(boolean[][] pixels, int width, int height, int tickLength) {
+    public GameOfLife(boolean[][] pixels, int width, int height) {
         this.pixels = pixels;
         this.width = width;
         this.height = height;
-        this.tickLength = tickLength;
     }
 
     @Override
@@ -23,7 +21,7 @@ public class GameOfLife implements Simulation {
                 // fill a square with top left corner at (x,y) - the length size is PIXEL_SIZE. this is so pixels show up more.
                 int count = getLiveNeighborCount(x, y);
                 if(count == 3) {
-                    pixelCopy[y][x] = true; // cells with 3 neighbors stay living or come alive.
+                    pixelCopy[y][x] = true; // cells with 3 neighbors stay living or come a4live.
                 } else if(count == 2) {
                     if (this.pixels[y][x]) {
                         pixelCopy[y][x] = true; // living cells with 2 neighbors live.
